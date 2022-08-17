@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="CSVHelper" Version="28.0.1" />
+    <PackageReference Include="newtonsoft.json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>
