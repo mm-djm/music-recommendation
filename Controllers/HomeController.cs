@@ -5,6 +5,9 @@ using System.Data;
 using CsvHelper;
 using CsvHelper.Configuration;
 using System.Globalization;
+using System.Net;
+using Newtonsoft.Json;
+using System.Text; 
 
 namespace music_recommdation.Controllers;
 
@@ -19,12 +22,6 @@ public class HomeController : Controller
     }
 
     public ActionResult Survey()
-    {
-        GenerateRandom();
-        return View();
-    }
-
-    public ActionResult JsonSurvey()
     {
         GenerateRandom();
         return View();
@@ -50,35 +47,31 @@ public class HomeController : Controller
 
         var recommendations = FindRecommendation(answerList);
 
+        SendRecommendation(recommendations);
+
         ViewBag.ids = recommendations;
         
         return View();
     }
 
-    [HttpPost]
-    public JsonResult RecommendationJson(IFormCollection form)
+    public void SendRecommendation(List<int> recommendations)
     {
-        string[] L=new string[5];
-        L[0] = form["Q1"];
-        L[1] = form["Q2"];
-        L[2] = form["Q3"];
-        L[3] = form["Q4"];
-        L[4] = form["Q5"];
+        var request = (HttpWebRequest)WebRequest.Create("https://f1func-001.azurewebsites.net/api/TrainingDataUpdate?code=2EiVjdBauREP4kyVOXLUDLYCJRjJ1Ud/e6LLqL8YFBg0JP9kTU4XTw==");
+        RecommendationModel recommend = new RecommendationModel() { ArtistIDs = recommendations};
+        var postData = JsonConvert.SerializeObject(recommend);
+        request.Method = "POST";
+        request.ContentType = "application/json";
+        Stream reqStream = request.GetRequestStream();
+        byte[] reqBytes = Encoding.UTF8.GetBytes(postData);
+        reqStream.Write(reqBytes, 0, reqBytes.Length);
+        reqStream.Close();
 
-        IList<ArtistModel> answerList = new List<ArtistModel> {
-            new ArtistModel() { ArtistID = A[0], Liked=L[0]},
-            new ArtistModel() { ArtistID = A[1], Liked=L[1]},
-            new ArtistModel() { ArtistID = A[2], Liked=L[2]},
-            new ArtistModel() { ArtistID = A[3], Liked=L[3]},
-            new ArtistModel() { ArtistID = A[4], Liked=L[4]},
-        };
+        Console.WriteLine(postData);
 
-        var recommendations = FindRecommendation(answerList);
+        var response = (HttpWebResponse)request.GetResponse();
 
-        var AnswerList = answerList;
-        var RecommendationList = recommendations;
-        
-        return new JsonResult(new {AnswerList, RecommendationList});
+        var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+        Console.WriteLine(responseString);
     }
 
     public List<int> FindRecommendation(IList<ArtistModel> answerList)
