@@ -51,12 +51,6 @@ public class HomeController : Controller
         var recommendations = FindRecommendation(answerList);
 
         ViewBag.ids = recommendations;
-
-        // ViewBag.id1 = recommendations[0];
-        // ViewBag.id2 = recommendations[1];
-        // ViewBag.id3 = recommendations[2];
-        // ViewBag.id4 = recommendations[3];
-        // ViewBag.id5 = recommendations[4];
         
         return View();
     }
@@ -142,8 +136,13 @@ public class HomeController : Controller
         // Compare the user with the most and least similar interests
         var similar = userMap[likePersonId];
         var notSimilar = userMap[dislikePersonId];
+        
         foreach (var item in similar)
         {
+            if (result.Count==5)
+            {
+                break;
+            }
             var key = item.Key;
             if (!notSimilar.ContainsKey(key))
             {
@@ -151,6 +150,32 @@ public class HomeController : Controller
                 {
                     result.Add(key);
                 }
+            }
+        }
+
+
+        foreach (var item in likeMap)
+        {
+            if (result.Count==5)
+            {
+                break;
+            }
+            var u = item.Key;
+            var secondSimilar = userMap[u];
+            foreach (var i in secondSimilar)
+            {
+                if (result.Count==5)
+                {
+                break;
+                }
+                var key = i.Key;
+                if (!notSimilar.ContainsKey(key))
+                {
+                if (!surveyArtistMap.ContainsKey(key))
+                {
+                    result.Add(key);
+                }
+            }
             }
         }
         return result;
