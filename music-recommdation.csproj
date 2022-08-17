@@ -7,4 +7,8 @@
     <RootNamespace>music_recommdation</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="CSVHelper" Version="28.0.1" />
+  </ItemGroup>
+
 </Project>

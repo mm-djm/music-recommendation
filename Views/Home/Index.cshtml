@@ -2,29 +2,5 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div>
-    1.Do you like Artist 1? (Y/N)
-    <br>
-    <input type="radio" name="answer",value="Q1Y"> Yes
-    <input type="radio" name="answer",value="Q1N"> No
-    <br>
-    2.Do you like Artist 2? (Y/N)
-    <br>
-    <input type="radio" name="answer",value="Q2Y"> Yes
-    <input type="radio" name="answer",value="Q2N"> No
-    <br>
-    3.Do you like Artist 3? (Y/N)
-    <br>
-    <input type="radio" name="answer",value="Q3Y"> Yes
-    <input type="radio" name="answer",value="Q3N"> No
-    <br>
-    4.Do you like Artist 4? (Y/N)
-    <br>
-    <input type="radio" name="answer",value="Q4Y"> Yes
-    <input type="radio" name="answer",value="Q4N"> No
-    <br>
-    5.Do you like Artist 5? (Y/N)
-    <br>
-    <input type="radio" name="answer",value="Q5Y"> Yes
-    <input type="radio" name="answer",value="Q5N"> No
-</div>
+<form action="/Home/Survey" method="get"><input type="submit" value="go to survey"></form>
+<form action="/Home/JsonSurvey" method="get"><input type="submit" value="go to survey, json response"></form>

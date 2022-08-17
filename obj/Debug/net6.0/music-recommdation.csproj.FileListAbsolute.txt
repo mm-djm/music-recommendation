@@ -24,3 +24,5 @@ D:\工作\music-recommdation\obj\Debug\net6.0\refint\music-recommdation.dll
 D:\工作\music-recommdation\obj\Debug\net6.0\music-recommdation.pdb
 D:\工作\music-recommdation\obj\Debug\net6.0\music-recommdation.genruntimeconfig.cache
 D:\工作\music-recommdation\obj\Debug\net6.0\ref\music-recommdation.dll
+D:\工作\music-recommdation\bin\Debug\net6.0\CsvHelper.dll
+D:\工作\music-recommdation\obj\Debug\net6.0\music-recommdation.csproj.CopyComplete

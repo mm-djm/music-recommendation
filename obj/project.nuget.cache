@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2/Dsr2qnDME+I+Rp8CG1Ok7nx36LYTD0SPcFhw4kGjzeNdl0W3aWNrrF/Ak0iWqDcoQchNCO5Gwtz8IHkKGa2Q==",
+  "dgSpecHash": "Vr+p6eS0b8QC7ts34Qbgi/Ec7X2Ah/2LGlhcbHSVdRguFsNHZiZjdTI4p90LlE8Ip7uzge7+hvjCzyBMsLUWNQ==",
   "success": true,
   "projectFilePath": "D:\\工作\\music-recommdation\\music-recommdation.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\csvhelper\\28.0.1\\csvhelper.28.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
