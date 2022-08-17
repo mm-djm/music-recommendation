@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Survey";
+}
+
+<form action="/Home/Recommendation" method="post">
+        1.Do you like Artist @ViewBag.artist1? (Y/N)
+        <br>
+        <input type="radio" name="Q1" value="Y"> Y
+        <input type="radio" name="Q1" value="N"> N
+        <br>
+        2.Do you like Artist @ViewBag.artist2? (Y/N)
+        <br>
+        <input type="radio" name="Q2" value="Y"> Y
+        <input type="radio" name="Q2" value="N"> N
+        <br>
+        3.Do you like Artist @ViewBag.artist3? (Y/N)
+        <br>
+        <input type="radio" name="Q3" value="Y"> Y
+        <input type="radio" name="Q3" value="N"> N
+        <br>
+        4.Do you like Artist @ViewBag.artist4? (Y/N)
+        <br>
+        <input type="radio" name="Q4" value="Y"> Y
+        <input type="radio" name="Q4" value="N"> N
+        <br>
+        5.Do you like Artist @ViewBag.artist5? (Y/N)
+        <br>
+        <input type="radio" name="Q5" value="Y"> Y
+        <input type="radio" name="Q5" value="N"> N
+        <br>
+        <input type="submit" value="submit" />
+</form>

@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Artist";
+}
+
+<p>You may be interested in:</p>
+@foreach (var item in ViewBag.ids)
+{
+    <br>
+    <td>Artist</td>
+    @item;
+}
