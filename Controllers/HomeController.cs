@@ -133,6 +133,34 @@ public class HomeController : Controller
         {
             surveyArtistMap[A[i]] = 0;
         }
+
+        // All like or dislike
+        if (dislikePersonId == 0)
+        {
+            while (result.Count!=5) {
+                Random random = new Random();
+                var num = random.Next(1,25);
+                Console.WriteLine(num);
+                if (!surveyArtistMap.ContainsKey(num))
+                {
+                    result.Add(num);
+                }
+            }
+            return result;
+        }
+        if (likePersonId==0)
+        {
+            while (result.Count!=5) {
+                Random random = new Random();
+                var num = random.Next(1,25);
+                Console.WriteLine(num);
+                if (!surveyArtistMap.ContainsKey(num))
+                {
+                    result.Add(num);
+                }
+            }
+            return result;
+        }
         // Compare the user with the most and least similar interests
         var similar = userMap[likePersonId];
         var notSimilar = userMap[dislikePersonId];
